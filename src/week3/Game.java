@@ -10,7 +10,7 @@ public class Game{
     int wins;
     public static void main(String[] args){
 
-        Game game = new Game();
+        Game game = new Game(0, 10);
         int Guess;
         Scanner input = new Scanner(System.in);
         System.out.println("Guess a number between 1-10");
