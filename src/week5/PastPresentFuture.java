@@ -18,8 +18,26 @@ public class PastPresentFuture {
         System.out.println("Please input a year as a number");
         year = input.nextInt();
 
-        if (month > 8){
-            System.out.println("That month is in the future");
+
+
+
+        if (year == 2019){
+
+            if (month > 8){
+                System.out.println("The date is this year at a later month");
+            }
+
+            else if (month < 8){
+                System.out.println("The date is this year in an earlier month");
+            }
+
+            else{
+                System.out.println("The date is this year in this month");
+            }
+        }
+
+        else {
+            System.out.println("The date is not this year");
         }
     }
 }
