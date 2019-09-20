@@ -1,7 +1,5 @@
 package week8;
 
-import java.util.Arrays;
-
 public class BookArray {
 
     public static void main(String[] args){

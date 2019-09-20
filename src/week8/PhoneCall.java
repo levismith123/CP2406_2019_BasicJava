@@ -2,8 +2,8 @@ package week8;
 
 public abstract class PhoneCall {
 
-    private String phoneNum;
-    private double price;
+    String phoneNum;
+    double price;
 
     PhoneCall(String phoneNumber){
         phoneNum = phoneNumber;
@@ -14,9 +14,9 @@ public abstract class PhoneCall {
         this.price = price;
     }
 
-    abstract void getPhoneNum();
-    abstract void getPrice();
-    abstract void displayCall();
+    abstract String getPhoneNum();
+    abstract double getPrice();
+    abstract String displayCall();
 
     public static class IncomingPhoneCall extends PhoneCall{
 
@@ -26,18 +26,18 @@ public abstract class PhoneCall {
         }
 
         @Override
-        void getPhoneNum() {
-
+        String getPhoneNum() {
+            return this.phoneNum;
         }
 
         @Override
-        void getPrice() {
-
+        double getPrice() {
+            return this.price;
         }
 
         @Override
-        void displayCall() {
-
+        String displayCall() {
+            return(getPhoneNum() + " " + getPrice());
         }
     }
 
@@ -52,18 +52,19 @@ public abstract class PhoneCall {
         }
 
         @Override
-        void getPhoneNum() {
-
+        String getPhoneNum() {
+            return this.phoneNum;
         }
 
         @Override
-        void getPrice() {
-
+        double getPrice() {
+            return this.price;
         }
 
         @Override
-        void displayCall() {
-
+        String displayCall() {
+           double totalCost = minutesTime * getPrice();
+           return(getPhoneNum() + " " + getPrice() + " " + minutesTime + " " + totalCost);
         }
     }
 }
