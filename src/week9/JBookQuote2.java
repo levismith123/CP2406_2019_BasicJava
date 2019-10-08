@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class JBookQuote2 implements ActionListener{
+public class JBookQuote2 extends JFrame implements ActionListener{
 
     public static void main(String[] args){
 
