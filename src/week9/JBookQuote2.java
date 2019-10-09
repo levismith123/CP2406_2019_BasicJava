@@ -5,12 +5,11 @@ import java.awt.event.*;
 
 public class JBookQuote2 extends JFrame implements ActionListener{
 
-    public static void main(String[] args){
+    JFrame quote = new JFrame("Quote");
+    JLabel bookQuote = new JLabel("Stuff");
+    JButton title = new JButton("getTitle");
 
-        JFrame quote = new JFrame("Quote");
-        JLabel bookQuote = new JLabel("Stuff");
-        JButton title = new JButton("getTitle");
-
+    public void main(String[] args){
 
         bookQuote.setFont(new Font("Arial", Font.BOLD, 16));
         quote.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
