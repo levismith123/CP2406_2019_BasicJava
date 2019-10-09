@@ -1,26 +1,32 @@
 package week9;
-import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class JBookQuote2{
+public class JBookQuote2 extends JFrame implements ActionListener{
 
 
+    JButton button = new JButton("get book");
+    JLabel bookQuote = new JLabel("Stuff");
+    final int WIDTH = 250;
+    final int HEIGHT = 100;
+
+    public JBookQuote2(){
+
+        super("Hello");
+        setSize(WIDTH, HEIGHT);
+        setLayout(new FlowLayout());
+        add(button);
+        add(bookQuote);
+        button.addActionListener(this);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
 
     public static void main(String[] args){
-        JFrame quote = new JFrame("Quote");
-        JLabel bookQuote = new JLabel("Stuff");
-        JButton title = new JButton("getTitle");
-        bookQuote.setFont(new Font("Arial", Font.BOLD, 16));
-        quote.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        quote.setSize(250, 100);
-        quote.setVisible(true);
-
-        quote.add(bookQuote, BorderLayout.WEST);
-        quote.add(title, BorderLayout.EAST);
-        title.addActionListener(this);
-
+       new JBookQuote2().show();
     }
+
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
