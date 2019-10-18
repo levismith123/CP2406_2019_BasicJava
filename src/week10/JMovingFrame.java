@@ -4,11 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class JMovingFrame extends JFrame implements ActionListener {
 
     JButton movingButton = new JButton("Move");
     JLabel message = new JLabel("Move me!");
+    Random random = new Random();
 
     final int ROWS = 5;
     final int COLS = 5;
@@ -22,10 +24,12 @@ public class JMovingFrame extends JFrame implements ActionListener {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         add(movingButton);
         add(message);
-        for (int i= 0; i<(ROWS*COLS)-2; i++){
-            JPanel panel = new JPanel();
-            add(panel);
-            panel.setBackground(Color.green);
+        JPanel[] panel = new JPanel[(ROWS*COLS)-2];
+        for (int i= 0; i<panel.length; i++)
+        {
+            panel[i] = new JPanel();
+            add(panel[i]);
+            panel[i].setBackground(Color.green);
         }
 
         setSize(WIDTH, HEIGHT);
@@ -37,6 +41,6 @@ public class JMovingFrame extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-
+        int randNum = random.nextInt(ROWS*COLS +1);
     }
 }
