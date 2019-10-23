@@ -12,26 +12,33 @@ public class JMovingFrame extends JFrame implements ActionListener {
     JLabel message = new JLabel("Move me!");
     Random random = new Random();
 
+
     final int ROWS = 5;
     final int COLS = 5;
 
     final int WIDTH = 500;
     final int HEIGHT = 200;
 
+    JPanel[] panel = new JPanel[(ROWS*COLS)-1];
+
+
+
     JMovingFrame(){
         super();
-        setLayout(new GridLayout(ROWS,COLS));
+
+        GridLayout layout = new GridLayout(ROWS,COLS);
+        setLayout(layout);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         add(movingButton);
-        add(message);
-        JPanel[] panel = new JPanel[(ROWS*COLS)-2];
-        for (int i= 0; i<panel.length; i++)
+
+        for(int i= 0; i<panel.length; i++)
         {
             panel[i] = new JPanel();
             add(panel[i]);
             panel[i].setBackground(Color.green);
         }
 
+        panel[0].add(message);
         setSize(WIDTH, HEIGHT);
         movingButton.addActionListener(this);
     }
@@ -41,6 +48,10 @@ public class JMovingFrame extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        int randNum = random.nextInt(ROWS*COLS +1);
+        int randNum = random.nextInt(ROWS*COLS-1);
+        panel[randNum].add(message);
+        repaint();
+
     }
+
 }
